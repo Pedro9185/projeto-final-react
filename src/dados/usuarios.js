@@ -10,3 +10,4 @@ export const usuarios = [
     senha: "user123",
   },
 ];
+export default usuarios
