@@ -3,6 +3,7 @@ function Login() {
     <>
       <div>
         <h1>Aqui vai ser a Página de Login</h1>
+        <h2>Parte 2</h2>
       </div>
     </>
   );
