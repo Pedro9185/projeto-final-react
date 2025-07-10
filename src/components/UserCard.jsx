@@ -1,3 +1,4 @@
+import './UserCard.css';
 export default function UserCard () {
     return (
         <div className="user-card">

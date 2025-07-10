@@ -1,21 +1,26 @@
+import './Tabs.css';
 import { useState } from "react";
 export default function Tabs() {
     const [activeTab, setActiveTab] = useState('meus-itens');
     return (
         <div className="Tabs">
-            <button>
-                className={activeTab=== 'meus-itens' ? 'active' : ''}
-                onClick{() => setActiveTab('meus itens')}
-                Meus Itens               
+            <button
+                className={activeTab === 'meus-itens' ? 'active' : ''}
+                onClick={() => setActiveTab('meus itens')} 
+                >
+                  Meus Itens               
                 </button>
-            <button>
-                className{activeTab=== 'propostas' ? 'active' : ''}
-                onClick{() => setActiveTab('propostas')}
+            <button
+                className={activeTab=== 'propostas' ? 'active' : ''}
+                onClick={() => setActiveTab('propostas')}
+                >
                 Propostas               
                 </button>
-            <button>
-                 className{activeTab=== 'historico' ? 'active' : ''}
-                onClick{() => setActiveTab('historico')}
+            
+            <button
+                className={activeTab=== 'historico' ? 'active' : ''}
+                onClick={() => setActiveTab('historico')} 
+                >
                 Histórico 
                 </button>
 
