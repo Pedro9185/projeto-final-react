@@ -1,14 +1,21 @@
-import UserCard from "./components/Usercard"
-import Tabs from "./components/Tabs";
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Login from "./Pages/Login/Login";
+import Home from "./Pages/Home/Home";
+import UserCard from './components/UserCard'
 
 function App() {
 
 
  return (
-    <div>
-      <UserCard />
-      <Tabs />
-    </div>
+    <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/userCard" element={<UserCard/>}/>
+        </Routes>
+    </BrowserRouter>
+
   );
 }
 export default App
