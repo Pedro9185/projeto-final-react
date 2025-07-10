@@ -9,9 +9,13 @@ export default function UserCard () {
             <p>trocas realizadas</p>
             <p>Cidade</p>
             </div>
-            <div>
-                <button>Configurações</button>
-                <button>Novo Item</button>
+            <div className="buttons">
+                <button onClick={() => alert('Entrando nas configurações')}> 
+                    Configurações
+                </button>
+                <button onClick={() => alert('Abrindo cadastro de novo item')}> 
+                    Novo Item
+                </button>
             </div>
             </div>
         );
