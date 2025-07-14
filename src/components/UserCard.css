@@ -5,6 +5,8 @@
     margin: 20px; 
     padding: 20px;
     border-radius: 15px;
+    width: 80vw;
+    
 }
 .user-card h2{
     color: #2e8b57;
@@ -20,4 +22,11 @@
 .buttons button {
     margin-right: 10px;
     background-color:#2e8b57;
+}
+.imagem {
+    width: 150px;
+    height: 100px;
+}
+.ctn-info {
+    width: 40%;
 }
