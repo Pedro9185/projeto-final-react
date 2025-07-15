@@ -21,7 +21,7 @@ function Login() {
     }
     localStorage.setItem("usuarioLogado", JSON.stringify(existe));
 
-    navigate("/");
+    navigate("/home");
   };
 
   return (

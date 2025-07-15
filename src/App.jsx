@@ -4,6 +4,7 @@ import Login from "./Pages/Login/Login";
 import Home from "./Pages/Home/Home";
 import UserCard from './components/UserCard'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Explorar from "./Pages/Explorar/Explorar";
 
 function App() {
 
@@ -11,9 +12,10 @@ function App() {
  return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/" element={<Login/>}/>
+          <Route path="/home" element={<Home/>}/>
           <Route path="/userCard" element={<UserCard/>}/>
+          <Route path="/explorar" element={<Explorar/>}/>
         </Routes>
     </BrowserRouter>
 
