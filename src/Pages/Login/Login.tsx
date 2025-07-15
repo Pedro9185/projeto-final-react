@@ -12,14 +12,16 @@ function Login() {
     event.preventDefault();
 
     const existe = usuarios.find(
-      (user) => user.email === email && user.senha === senha
+      (user) => user.email === email && user.password === senha
     );
 
     if (!existe) {
-      alert("Email ou senha invalidos");
+          alert("Email ou senha invalidos");
       return;
     }
     navigate("/");
+
+    
   };
 
   return (
@@ -28,24 +30,25 @@ function Login() {
         <p>Entre no Sistema</p>
 
         <form onSubmit={handleSubmit}>
-          <div>
-            <input
+          <div className="div-input-email">
+            <input className="inputs"
               type="email"
               id="email"
               placeholder="E-mail"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div>
+          <div className="div-input-password">
             <input
               type="password"
+              className="inputs"
               id="senha"
               placeholder="Senha"
               onChange={(e) => setSenha(e.target.value)}
             />
           </div>
 
-          <button type="submit">Entrar</button>
+          <button type="submit" className="botao-entrar">Entrar</button>
         </form>
       </div>
     </>
