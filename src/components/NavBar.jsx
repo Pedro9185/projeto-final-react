@@ -1,0 +1,81 @@
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+
+function NavBar() {
+
+    const [logado, setLogado] = useState(false);
+
+    useEffect(() => {
+        const user = localStorage.getItem("usuarioLogado");
+        setLogado(!!user); // true se existir
+    }, []);
+
+    const sair = () =>{
+        localStorage.removeItem("usuarioLogado")
+        navigate("/login")
+    } 
+
+    const navigate = useNavigate()
+    return (
+        <nav className="navbar navbar-expand-lg bg-white shadow-sm py-3">
+            <div className="container-fluid">
+
+                <a className="navbar-brand d-flex align-items-center" href="#">
+                    <img
+                        src="https://img.icons8.com/ios-filled/30/4caf50/leaf.png"
+                        alt="Logo"
+                        className="me-2"
+                    />
+                    <span style={{ color: '#198754' }}>Eco</span><span style={{ color: '#0d6efd' }}>troca</span>
+                </a>
+
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li className="nav-item">
+                            <button className="btn btn-sm d-flex align-items-center" style={{ backgroundColor: '#d1f3e2', color: '#198754' }}>
+                                <i className="bi bi-search me-1"></i> Explorar
+                            </button>
+                        </li>
+
+
+                        <li className="nav-item ms-3">
+                            <a className="nav-link text-secondary" href="#">+ Cadastrar Item</a>
+                        </li>
+                    </ul>
+
+
+                    <div className="d-flex align-items-center ms-auto">
+                        {!logado && (
+                            <Link to="/login" className="btn btn-outline-secondary me-2">
+                                Entrar
+                            </Link>
+                        )}
+                        <Link to="/perfil" className="btn btn-success text-white">
+                            <i className="bi bi-person-fill me-1"></i> Meu Perfil
+                        </Link>
+                        <button className="btn btn-success m-3 text-white" onClick={() => sair()}>
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
+}
+
+export default NavBar;
