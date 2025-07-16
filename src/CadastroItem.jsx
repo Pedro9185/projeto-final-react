@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavBar from './components/NavBar';
 
 const CadastroItem = () => {
   const [nome, setNome] = useState('');
@@ -50,6 +51,8 @@ const CadastroItem = () => {
   };
 
   return (
+   <>
+    <NavBar/>
     <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
       <h1 style={{ textAlign: 'center', color: '#007bff' }}>
         Cadastro de um novo item
@@ -63,7 +66,7 @@ const CadastroItem = () => {
             onChange={(e) => setNome(e.target.value)}
             style={{ width: '100%' }}
             required
-          />
+            />
         </div>
         <div style={{ marginBottom: '10px', textAlign: 'left' }}>
           <label>Descrição:</label>
@@ -73,7 +76,7 @@ const CadastroItem = () => {
             onChange={(e) => setDescricao(e.target.value)}
             style={{ width: '100%' }}
             required
-          />
+            />
         </div>
         <div style={{ marginBottom: '10px', textAlign: 'left' }}>
           <label>Categoria:</label>
@@ -83,7 +86,7 @@ const CadastroItem = () => {
             onChange={(e) => setCategoria(e.target.value)}
             style={{ width: '100%' }}
             required
-          />
+            />
         </div>
         <div style={{ marginBottom: '10px', textAlign: 'left' }}>
           <label>Região:</label>
@@ -93,7 +96,7 @@ const CadastroItem = () => {
             onChange={(e) => setRegiao(e.target.value)}
             style={{ width: '100%' }}
             required
-          />
+            />
         </div>
         <div style={{ marginBottom: '10px', textAlign: 'left' }}>
           <label>Bairro:</label>
@@ -103,7 +106,7 @@ const CadastroItem = () => {
             onChange={(e) => setBairro(e.target.value)}
             style={{ width: '100%' }}
             required
-          />
+            />
         </div>
         <div style={{ marginBottom: '10px', textAlign: 'left' }}>
           <label>Foto do produto:</label>
@@ -114,7 +117,7 @@ const CadastroItem = () => {
             onChange={(e) => setFoto(e.target.files[0])}
             style={{ width: '100%' }}
             required
-          />
+            />
         </div>
         <button
           type="submit"
@@ -129,7 +132,7 @@ const CadastroItem = () => {
             display: 'inline-block',
             marginTop: '10px',
           }}
-        >
+          >
           Cadastrar
         </button>
       </form>
@@ -146,30 +149,32 @@ const CadastroItem = () => {
       <ul style={{ padding: 0, listStyle: 'none' }}>
         {itens.map((item) => (
           <li
-            key={item.id}
-            style={{
-              background: '#ffffff',
-              padding: '10px',
-              marginBottom: '8px',
-              borderRadius: '4px',
-              boxShadow: '0 0 5px rgba(0,0,0,0.1)',
+          key={item.id}
+          style={{
+            background: '#ffffff',
+            padding: '10px',
+            marginBottom: '8px',
+            borderRadius: '4px',
+            boxShadow: '0 0 5px rgba(0,0,0,0.1)',
             }}
-          >
+            >
             <strong style={{ color: '#007bff' }}>{item.nome}</strong> -{' '}
             {item.descricao} ({item.categoria})<br />
             Região: {item.regiao} | Bairro: {item.bairro}
             <br />
             {item.fotoUrl && (
               <img
-                src={item.fotoUrl}
-                alt="Foto do Produto"
-                style={{ marginTop: '10px', maxWidth: '100%' }}
+              src={item.fotoUrl}
+              alt="Foto do Produto"
+              style={{ marginTop: '10px', maxWidth: '100%' }}
               />
             )}
           </li>
         ))}
       </ul>
     </div>
+        </>
+  
   );
 };
 

@@ -5,6 +5,7 @@ import Home from "./Pages/Home/Home";
 import UserCard from './components/UserCard'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Explorar from "./Pages/Explorar/Explorar";
+import CadastroItem from "./CadastroItem";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/home" element={<Home/>}/>
           <Route path="/userCard" element={<UserCard/>}/>
           <Route path="/explorar" element={<Explorar/>}/>
+          <Route path="/cadastrarItem" element={<CadastroItem/>}/>
         </Routes>
     </BrowserRouter>
 

@@ -54,7 +54,7 @@ function NavBar() {
 
 
                         <li className="nav-item ms-3">
-                            <a className="nav-link text-secondary" href="#">+ Cadastrar Item</a>
+                            <Link to={'/cadastrarItem'} className="nav-link text-secondary" >+ Cadastrar Item</Link>
                         </li>
                     </ul>
 
