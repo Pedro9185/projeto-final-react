@@ -14,7 +14,7 @@ function NavBar() {
 
     const sair = () =>{
         localStorage.removeItem("usuarioLogado")
-        navigate("/login")
+        navigate("/")
     } 
 
     const navigate = useNavigate()
@@ -47,9 +47,9 @@ function NavBar() {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li className="nav-item">
-                            <button className="btn btn-sm d-flex align-items-center" style={{ backgroundColor: '#d1f3e2', color: '#198754' }}>
+                            <Link to={'/explorar'} className="btn btn-sm d-flex align-items-center" style={{ backgroundColor: '#d1f3e2', color: '#198754' }} >
                                 <i className="bi bi-search me-1"></i> Explorar
-                            </button>
+                            </Link>
                         </li>
 
 
