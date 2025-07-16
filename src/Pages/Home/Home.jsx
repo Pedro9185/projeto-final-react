@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import NavBar from "../../components/NavBar"
 
 function Home() {
@@ -25,9 +26,9 @@ function Home() {
           </p>
 
           <div className="d-flex justify-content-center mt-4 flex-wrap gap-2">
-            <button className="btn btn-light text-success fw-semibold d-flex align-items-center px-4">
+            <Link to={'/cadastrarItem'} className="btn btn-light text-success fw-semibold d-flex align-items-center px-4">
               Cadastrar Item <i className="bi bi-arrow-right ms-2"></i>
-            </button>
+            </Link>
             <input
               type="text"
               className="form-control"

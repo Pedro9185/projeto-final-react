@@ -50,9 +50,16 @@ function Explorar() {
                 <span className={`badge bg-${item.badgeColor} mb-2`}>
                   {item.categoria}
                 </span>
-                <h6 className="card-title">{item.nome}</h6>
+                <h5 className="card-title">{item.nome}</h5>
+                <h6 className="card-title">Descrição:</h6>
+                   <p className="text-muted small mb-0">
+                  <i className="bi bi-clock me-1"></i> {item.descricao}
+                </p>
                 <p className="text-muted small mb-0">
                   <i className="bi bi-clock me-1"></i> {item.tempo}
+                </p>
+                 <p className="text-muted small mb-0">
+                  <i className="bi bi-clock me-1"></i> {item.regiao}
                 </p>
               </div>
             </div>

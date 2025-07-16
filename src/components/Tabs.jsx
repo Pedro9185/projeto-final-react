@@ -1,8 +1,11 @@
+import NavBar from './NavBar';
 import './Tabs.css';
 import { useState } from "react";
 export default function Tabs() {
     const [activeTab, setActiveTab] = useState('meus-itens');
     return (
+        <>
+        <NavBar/>
         <div className="Tabs">
             <button
                 className={activeTab === 'meus-itens' ? 'active' : ''}
@@ -24,5 +27,6 @@ export default function Tabs() {
                     {activeTab === 'propostas' & <p>Conteúdo das propostas</p>}
                 </div>
         </div>
+        </>
     );
 }

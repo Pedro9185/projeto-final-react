@@ -22,14 +22,14 @@ function NavBar() {
         <nav className="navbar navbar-expand-lg bg-white shadow-sm py-3">
             <div className="container-fluid">
 
-                <a className="navbar-brand d-flex align-items-center" href="#">
+                <Link to={"/home"} className="navbar-brand d-flex align-items-center" >
                     <img
                         src="https://img.icons8.com/ios-filled/30/4caf50/leaf.png"
                         alt="Logo"
                         className="me-2"
                     />
                     <span style={{ color: '#198754' }}>Eco</span><span style={{ color: '#0d6efd' }}>troca</span>
-                </a>
+                </Link>
 
                 <button
                     className="navbar-toggler"
@@ -46,15 +46,16 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-                        <li className="nav-item">
-                            <Link to={'/explorar'} className="btn btn-sm d-flex align-items-center" style={{ backgroundColor: '#d1f3e2', color: '#198754' }} >
-                                <i className="bi bi-search me-1"></i> Explorar
-                            </Link>
+                        <li className="nav-item ms-3">
+                            <Link to={'/explorar'} className="nav-link text-secondary" >Explorar</Link>
                         </li>
 
 
                         <li className="nav-item ms-3">
-                            <Link to={'/cadastrarItem'} className="nav-link text-secondary" >+ Cadastrar Item</Link>
+                            <Link to={'/cadastrarItem'} className="nav-link text-secondary" >Novo Item</Link>
+                        </li>
+                         <li className="nav-item ms-3">
+                            <Link to={'/userCard'} className="nav-link text-secondary" >Usuário</Link>
                         </li>
                     </ul>
 
@@ -65,7 +66,7 @@ function NavBar() {
                                 Entrar
                             </Link>
                         )}
-                        <Link to="/perfil" className="btn btn-success text-white">
+                        <Link to="/tabs" className="btn btn-success text-white">
                             <i className="bi bi-person-fill me-1"></i> Meu Perfil
                         </Link>
                         <button className="btn btn-success m-3 text-white" onClick={() => sair()}>

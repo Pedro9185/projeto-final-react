@@ -63,9 +63,11 @@ const CadastroItem = () => {
           <input
             type="text"
             value={nome}
+            placeholder='Nome do Produto'
             onChange={(e) => setNome(e.target.value)}
-            style={{ width: '100%' }}
+            style={{ width: '100%', paddingLeft: "5px", height: "40px" }}
             required
+           
             />
         </div>
         <div style={{ marginBottom: '10px', textAlign: 'left' }}>
@@ -73,8 +75,9 @@ const CadastroItem = () => {
           <input
             type="text"
             value={descricao}
+            placeholder='Descrição do Produto'
             onChange={(e) => setDescricao(e.target.value)}
-            style={{ width: '100%' }}
+            style={{ width: '100%' , paddingLeft: "5px", height: "40px"  }}
             required
             />
         </div>
@@ -83,8 +86,9 @@ const CadastroItem = () => {
           <input
             type="text"
             value={categoria}
+            placeholder='Categoria do Produto'
             onChange={(e) => setCategoria(e.target.value)}
-            style={{ width: '100%' }}
+            style={{ width: '100%', paddingLeft: "5px", height: "40px"  }}
             required
             />
         </div>
@@ -93,8 +97,9 @@ const CadastroItem = () => {
           <input
             type="text"
             value={regiao}
+            placeholder='Região'
             onChange={(e) => setRegiao(e.target.value)}
-            style={{ width: '100%' }}
+            style={{ width: '100%', paddingLeft: "5px", height: "40px"  }}
             required
             />
         </div>
@@ -104,7 +109,8 @@ const CadastroItem = () => {
             type="text"
             value={bairro}
             onChange={(e) => setBairro(e.target.value)}
-            style={{ width: '100%' }}
+            placeholder='Bairro'
+            style={{ width: '100%', paddingLeft: "5px", height: "40px"  }}
             required
             />
         </div>
@@ -115,7 +121,7 @@ const CadastroItem = () => {
             accept="image/*"
             id="fotoInput"
             onChange={(e) => setFoto(e.target.files[0])}
-            style={{ width: '100%' }}
+            style={{ width: '100%', paddingLeft: "5px"  }}
             required
             />
         </div>

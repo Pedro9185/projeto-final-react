@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import './UserCard.css';
 import { usuarios } from "../dados/usuarios";
 import { useState } from "react";
+import NavBar from "./NavBar";
 
 export default function UserCard () {
     const navigate = useNavigate();
@@ -18,6 +19,8 @@ export default function UserCard () {
         setIsEditing(false);
     }
     return (
+       <>
+       <NavBar/>
         <div className="user-card">
         <img src= {setIsEditing ? editedAvatar : user.avatar} alt="Avatar" className="imagem" 
         />
@@ -44,5 +47,6 @@ export default function UserCard () {
                 )}
             </div>
             </div>
+       </>
         );
 }

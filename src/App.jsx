@@ -6,6 +6,7 @@ import UserCard from './components/UserCard'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Explorar from "./Pages/Explorar/Explorar";
 import CadastroItem from "./CadastroItem";
+import Tabs from "./components/Tabs";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/userCard" element={<UserCard/>}/>
           <Route path="/explorar" element={<Explorar/>}/>
           <Route path="/cadastrarItem" element={<CadastroItem/>}/>
+          <Route path="/tabs" element={<Tabs/>}/>
         </Routes>
     </BrowserRouter>
 
