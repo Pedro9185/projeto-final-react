@@ -1,3 +1,5 @@
+import itens from "./itens";
+
 export const usuarios = [
  {
     id: 1,
@@ -7,7 +9,8 @@ export const usuarios = [
     city: "Canindé, CE",
     avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7SgpEZGTQEXXRiwi1tOE3JcFtzxzPLJp7Hg&s",
     trades: 12,
-    member: "30/04"
+    member: "30/04",
+    itens: []
   },
   {
     id: 2,

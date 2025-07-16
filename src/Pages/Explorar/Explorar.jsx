@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 
 import itens from "../../dados/itens";
+import NavBar from "../../components/NavBar";
 
 
 let itensMock = itens
 
 function Explorar() {
   return (
+   <>
+   <NavBar/>
     <div className="container py-4">
      
       <div className="d-flex flex-column flex-md-row gap-2 mb-4 align-items-center">
@@ -67,6 +70,7 @@ function Explorar() {
         ))}
       </div>
     </div>
+   </>
   );
 }
 

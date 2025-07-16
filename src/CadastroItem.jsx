@@ -54,9 +54,9 @@ const CadastroItem = () => {
    <>
     <NavBar/>
     <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <h1 style={{ textAlign: 'center', color: '#007bff' }}>
-        Cadastro de um novo item
-      </h1>
+      <h3 style={{ textAlign: 'center', color: '#007bff' }}>
+        Cadastro de um novo Item
+      </h3>
       <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
         <div style={{ marginBottom: '10px', textAlign: 'left' }}>
           <label>Nome:</label>
@@ -65,7 +65,7 @@ const CadastroItem = () => {
             value={nome}
             placeholder='Nome do Produto'
             onChange={(e) => setNome(e.target.value)}
-            style={{ width: '100%', paddingLeft: "5px", height: "40px" }}
+            style={{ width: '100%', paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px" }}
             required
            
             />
@@ -77,7 +77,7 @@ const CadastroItem = () => {
             value={descricao}
             placeholder='Descrição do Produto'
             onChange={(e) => setDescricao(e.target.value)}
-            style={{ width: '100%' , paddingLeft: "5px", height: "40px"  }}
+            style={{ width: '100%' , paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px"  }}
             required
             />
         </div>
@@ -88,7 +88,7 @@ const CadastroItem = () => {
             value={categoria}
             placeholder='Categoria do Produto'
             onChange={(e) => setCategoria(e.target.value)}
-            style={{ width: '100%', paddingLeft: "5px", height: "40px"  }}
+            style={{ width: '100%', paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px"  }}
             required
             />
         </div>
@@ -99,7 +99,7 @@ const CadastroItem = () => {
             value={regiao}
             placeholder='Região'
             onChange={(e) => setRegiao(e.target.value)}
-            style={{ width: '100%', paddingLeft: "5px", height: "40px"  }}
+            style={{ width: '100%', paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px"  }}
             required
             />
         </div>
@@ -110,7 +110,7 @@ const CadastroItem = () => {
             value={bairro}
             onChange={(e) => setBairro(e.target.value)}
             placeholder='Bairro'
-            style={{ width: '100%', paddingLeft: "5px", height: "40px"  }}
+            style={{ width: '100%', paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px"  }}
             required
             />
         </div>

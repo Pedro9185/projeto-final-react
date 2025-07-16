@@ -19,7 +19,9 @@ function Login() {
       alert("Email ou senha inválidos");
       return;
     }
-    localStorage.setItem("usuarioLogado", JSON.stringify(existe));
+ localStorage.setItem("usuarioLogado", JSON.stringify(existe));
+
+   
 
     navigate("/home");
   };
@@ -27,10 +29,7 @@ function Login() {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
       <div className="shadow p-4 rounded-4" style={{ width: '100%', maxWidth: '420px', backgroundColor: 'white' }}>
-        <Link to="/" className="text-muted mb-3 d-inline-block">
-          ← Voltar ao início
-        </Link>
-
+     
         {/* Ícone central */}
         <div className="text-center mb-3">
           <div

@@ -68,5 +68,14 @@ const itens = [
     tempo: "3h",
     badgeColor: "success",
   },
+    {
+    id: 8,
+    nome: "Bicicleta Retrô",
+    imagem: bicicleta,
+    categoria: "Esportes",
+    regiao: "Fortaleza",
+    tempo: "3h",
+    badgeColor: "success",
+  },
 ];
 export default itens;
