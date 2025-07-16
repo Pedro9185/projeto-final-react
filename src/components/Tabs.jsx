@@ -9,7 +9,7 @@ export default function Tabs() {
     return (
         <>
         <div className="tabs-container">
-            <div className="tabs-buttons"></div>
+            <div className="tabs-buttons">
             <button
                 className={activeTab === 'meus-itens' ? 'active' : ''}
                 onClick={() => setActiveTab('meus-itens')} 
@@ -22,7 +22,7 @@ export default function Tabs() {
                 >
                 Propostas               
                 </button>
-            
+            </div>
                 <div className="tab-contents">
                     {activeTab === 'meus-itens' && <Items/>}
                     {activeTab === 'propostas' && <Propostas/>}
