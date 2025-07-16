@@ -1,15 +1,19 @@
-import NavBar from './NavBar';
 import './Tabs.css';
 import { useState } from "react";
+import Items from './Items';
+import Propostas from './propostas';
+
 export default function Tabs() {
     const [activeTab, setActiveTab] = useState('meus-itens');
+   
     return (
         <>
         <NavBar/>
-        <div className="Tabs">
+        <div className="tabs-container">
+            <div className="tabs-buttons"></div>
             <button
                 className={activeTab === 'meus-itens' ? 'active' : ''}
-                onClick={() => setActiveTab('meus itens')} 
+                onClick={() => setActiveTab('meus-itens')} 
                 >
                   Meus Itens               
                 </button>
@@ -20,11 +24,9 @@ export default function Tabs() {
                 Propostas               
                 </button>
             
-           
-
                 <div className="tab-contents">
-                    {activeTab === 'meus-itens' & <p>Conteúdo dos meus itens</p>}
-                    {activeTab === 'propostas' & <p>Conteúdo das propostas</p>}
+                    {activeTab === 'meus-itens' && <Items/>}
+                    {activeTab === 'propostas' && <Propostas/>}
                 </div>
         </div>
         </>

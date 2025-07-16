@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Explorar from "./Pages/Explorar/Explorar";
 import CadastroItem from "./CadastroItem";
 import Tabs from "./components/Tabs";
+import UserPage from "./Pages/UserPage/userPage";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/explorar" element={<Explorar/>}/>
           <Route path="/cadastrarItem" element={<CadastroItem/>}/>
           <Route path="/tabs" element={<Tabs/>}/>
+          <Route path="/userPage" element={<UserPage/>}/>
         </Routes>
     </BrowserRouter>
 
