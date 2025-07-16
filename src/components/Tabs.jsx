@@ -17,17 +17,11 @@ export default function Tabs() {
                 Propostas               
                 </button>
             
-            <button
-                className={activeTab=== 'historico' ? 'active' : ''}
-                onClick={() => setActiveTab('historico')} 
-                >
-                Histórico 
-                </button>
+           
 
                 <div className="tab-contents">
                     {activeTab === 'meus-itens' & <p>Conteúdo dos meus itens</p>}
                     {activeTab === 'propostas' & <p>Conteúdo das propostas</p>}
-                    {activeTab === 'historico' & <p>Conteúdo do histórico</p>}
                 </div>
         </div>
     );

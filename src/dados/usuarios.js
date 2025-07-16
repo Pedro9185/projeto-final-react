@@ -25,7 +25,7 @@ export const usuarios = [
     email: "user3@teste.com",
     password:"user123",
     city: "Fortaleza, CE",
-    avatar: "https://assets.propmark.com.br/uploads/2019/11/publicitarios-negros.jpg",
+    avatar: "https://t4.ftcdn.net/jpg/05/69/89/19/360_F_569891944_kDbkk5J3PRy2FMKV8msXxJy2hSMFdyu7.jpg",
     trades: 34,
     member: "13/07"
   },
