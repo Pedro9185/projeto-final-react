@@ -21,7 +21,7 @@ function App() {
           <Route path="/explorar" element={<Explorar/>}/>
           <Route path="/cadastrarItem" element={<CadastroItem/>}/>
           <Route path="/tabs" element={<Tabs/>}/>
-          <Route path="/userPage" element={<UserPage/>}/>
+          <Route path="/UserPage" element={<UserPage/>}/>
         </Routes>
     </BrowserRouter>
 

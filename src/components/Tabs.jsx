@@ -8,7 +8,6 @@ export default function Tabs() {
    
     return (
         <>
-        <NavBar/>
         <div className="tabs-container">
             <div className="tabs-buttons"></div>
             <button
