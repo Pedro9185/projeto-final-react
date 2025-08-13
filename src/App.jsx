@@ -5,7 +5,7 @@ import Home from "./Pages/Home/Home";
 import UserCard from './components/UserCard'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Explorar from "./Pages/Explorar/Explorar";
-import CadastroItem from "./CadastroItem";
+import CadastroItem from "./Pages/CadastroItem/CadastroItem";
 import Tabs from "./components/Tabs";
 import UserPage from "./Pages/UserPage/userPage";
 
