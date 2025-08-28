@@ -14,31 +14,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model category {
-  id          Int       @id @default(autoincrement())
-  name        String
-  createdAt   DateTime? @db.Date
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  createdAt DateTime? @db.Date
 
   // Relationships
-  products    Product[]
+  products  Product[]
 }
 
-model user {
-  id          Int       @id @default(autoincrement())
-  name        String
-  email       String    @unique
-  password    String
-  phone       String?   @db.VarChar(20)
-  address     String?
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String    @unique
+  password     String
+  phone        String?   @db.VarChar(20)
+  address      String?
   registeredAt DateTime? @default(now()) @db.Date
-  birthDate   DateTime? @db.Date
+  birthDate    DateTime? @db.Date
 
   // Relationships
-  products    Product[]
-  trades      Trade[]
+  products     Product[]
+  trades       Trade[]
 }
 
-model product {
+model Product {
   id          Int       @id @default(autoincrement())
   name        String
   description String?
@@ -49,12 +49,12 @@ model product {
   categoryId  Int?
 
   // Relationships
-  user        User     @relation(fields: [userId], references: [id])
+  user        User      @relation(fields: [userId], references: [id])
   category    Category? @relation(fields: [categoryId], references: [id])
   trades      Trade[]
 }
 
-model trade {
+model Trade {
   id        Int       @id @default(autoincrement())
   productId Int
   userId    Int
