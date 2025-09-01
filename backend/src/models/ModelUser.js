@@ -1,76 +1,75 @@
-const prisma = require('../prisma');
+console.log ("--------------------------------")
+const prisma = require('../prisma'); // importa a instância correta do Prisma
+console.log ("--------------------------------")
 
-const getAllUsers = async() => {
-    return prisma.aluno.findMany({
+// Buscar todos os usuários
+const getAllUsers = async () => {
+    return prisma.User.findMany({
         orderBy: {
-            nome: 'desc'
+            name: 'desc' // ajustado para o campo name
         }
-});
-}
+    });
+};
 
-const getUserById = async(id) => {
+// Buscar usuário por ID
+const getUserById = async (id) => {
     return prisma.User.findUnique({
-        where: {
-            id : id
-        }
+        where: { id }
     });
-}
+};
 
-const addUser = async(name, email, password, phone, address,birthDate) =>{
-    return prisma.aluno.create({
+// Criar usuário
+const createUser = async (name, email, password, phone, address, birthDate) => {
+    return prisma.User.create({
         data: {
-            name: name,
-            email: email,
-            password: password,
-            phone: phone,
-            address: address,
-            birthDate: birthDate
+            name : name,
+            email:email,
+            password:password,
+            phone:phone,
+            address:address,
+            birthDate: new Date (birthDate) 
         }
     });
-}
+};
 
-const updateUser = async(id, name, email, password, phone, address,birthDate ) => {
-    const User = await getUserById(id);
+// Atualizar usuário
+const updateUser = async (id, name, email, password, phone, address, birthDate) => {
+    const user = await getUserById(id);
 
-    if(!User) {
+    if (!user) {
         throw new Error('Usuario não encontrado');
     }
 
     return prisma.User.update({
-        where: {
-            id: id
-        },
+        where: { id },
         data: {
-            id: id,
-            name: name,
-            email: email,
-            password: password,
-            phone: phone,
-            address: address,
-            birthDate: birthDate
+            name,
+            email,
+            password,
+            phone,
+            address,
+            birthDate
         }
     });
-}
+};
 
+// Deletar usuário
+const deleteUser = async (id) => {
+    const user = await getUserById(id);
 
-const deleteUser = async(id) => {
-    const User = await getUserById(id);
-
-    if(!User) {
+    if (!user) {
         throw new Error('Usuario não encontrado');
     }
 
     return prisma.User.delete({
-        where: {
-            id: id
-        }
+        where: { id }
     });
-}
+};
 
-models.exports = {
+module.exports = {
     getAllUsers,
     getUserById,
-    addUser,
+    createUser,
     updateUser,
     deleteUser
 };
