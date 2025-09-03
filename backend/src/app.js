@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
-console.log('=============================');
 const UserRoutes = require('./router/UserRoutes');
-console.log('=============================');
+const TradeRoutes = require('./router/TradeRoutes');
 
 
 app.use(express.json());
@@ -11,5 +10,5 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', UserRoutes);
-
+app.use('/trades', TradeRoutes);
 module.exports = app;
