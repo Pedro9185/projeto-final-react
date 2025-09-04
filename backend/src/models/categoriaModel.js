@@ -1,12 +1,16 @@
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
 
-async function create(data) {
-  return await prisma.category.create({ data })
+const prisma = require('../prisma')
+
+async function create(name) {
+  return await prisma.category.create({ data: {
+            name: name
+            
+        } })
 }
 
+
 async function findAll() {
-  return await prisma.category.findMany()
+  return prisma.category.findMany()
 }
 
 async function findById(id) {

@@ -1,8 +1,9 @@
 const categoriaModel = require('../models/categoriaModel')
 
 async function createCategoria(req, res) {
+  const{name} = req.body;
   try {
-    const categoria = await categoriaModel.create(req.body)
+    const categoria = await categoriaModel.create(name)
     res.status(201).json(categoria)
   } catch (error) {
     res.status(400).json({ error: error.message })
@@ -12,7 +13,7 @@ async function createCategoria(req, res) {
 async function getCategorias(req, res) {
   try {
     const categorias = await categoriaModel.findAll()
-    res.json(categorias)
+    res.status(200).json(categorias)
   } catch (error) {
     res.status(500).json({ error: error.message })
   }
