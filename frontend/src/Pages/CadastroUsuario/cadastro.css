@@ -1,0 +1,53 @@
+.cadastro-ctn {
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.div-input-email{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.inputs{
+  height: 35px;
+  width: 400px;
+
+  border-radius: 5px;
+
+}
+
+.botao-cadastrar{
+  height: 35px;
+  width: 404px;
+  margin-top: 25px;
+ background-color: rgb(101, 167, 35) ;
+ color: #ffff;
+ font-weight: 800;
+ font-size: 15px;
+ border: none;
+ cursor: pointer;
+ border-radius: 5px;
+}
+
+
+
+input:focus {
+  box-shadow: none !important;
+  border-color: #3b82f6 !important;
+}
+
+input::placeholder {
+  color: #bdbdbd;
+}
+
+input,
+.input-group-text {
+  border-radius: 10px !important;
+}

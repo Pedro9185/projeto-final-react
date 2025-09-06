@@ -25,9 +25,9 @@ const getTradeById = async (id) => {
 const addTrade = async (productId, userId, tradedAt) => {
     return prisma.trade.create({
         data: {
-            productId,
-            userId,
-            tradedAt
+            productId:productId,
+            userId:userId,
+            tradedAt: new Date(tradedAt)
         }
     });
 }

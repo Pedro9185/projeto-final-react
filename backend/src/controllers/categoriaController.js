@@ -1,4 +1,4 @@
-const categoriaModel = require('../models/categoriaModel')
+const categoriaModel = require('../models/ModelCadastro')
 
 async function createCategoria(req, res) {
   try {

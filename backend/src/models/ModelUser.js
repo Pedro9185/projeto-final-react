@@ -1,24 +1,19 @@
-console.log ("--------------------------------")
-const prisma = require('../prisma'); // importa a instância correta do Prisma
-console.log ("--------------------------------")
+const prisma = require('../prisma'); 
 
-// Buscar todos os usuários
 const getAllUsers = async () => {
     return prisma.User.findMany({
         orderBy: {
-            name: 'desc' // ajustado para o campo name
+            name: 'desc' 
         }
     });
 };
 
-// Buscar usuário por ID
 const getUserById = async (id) => {
     return prisma.User.findUnique({
         where: { id }
     });
 };
 
-// Criar usuário
 const createUser = async (name, email, password, phone, address, birthDate) => {
     return prisma.User.create({
         data: {
@@ -32,7 +27,6 @@ const createUser = async (name, email, password, phone, address, birthDate) => {
     });
 };
 
-// Atualizar usuário
 const updateUser = async (id, name, email, password, phone, address, birthDate) => {
     const user = await getUserById(id);
 
@@ -53,7 +47,6 @@ const updateUser = async (id, name, email, password, phone, address, birthDate) 
     });
 };
 
-// Deletar usuário
 const deleteUser = async (id) => {
     const user = await getUserById(id);
 
