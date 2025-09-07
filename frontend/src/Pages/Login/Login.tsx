@@ -3,8 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import UserServices from "../../services/UserServices";
 import "./login.css";
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+}
+
+
 function Login() {
-  const [users, setUsers] = useState([]); // array de usuários
+  const [users, setUsers] = useState<User[]>([]); // array de usuários
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(true);
@@ -15,12 +23,13 @@ function Login() {
   async function load() {
     try {
       setLoading(true);
-      const data = await UserServices.buscarUser(); // ✅ função correta
+      const data = await UserServices.buscarUser();
       console.log("Usuários retornados da API:", data);
       setUsers(data);
-    } catch (err) {
-      setError(err.message || "Erro ao carregar usuários");
-    } finally {
+      } catch (error) {
+        console.error("Erro ao buscar usuários:", error);
+    } 
+      finally {
       setLoading(false);
     }
   }
@@ -34,7 +43,7 @@ function Login() {
 
     // Busca usuário com email e senha corretos
     const existe = users.find(
-      (u) => u.email === email && u.password === senha
+      (user) => user.email === email && user.password === senha
     );
 
     if (!existe) {
@@ -155,28 +164,35 @@ function Login() {
 
         {/* Mensagens de loading e erro */}
         {loading && <p>Carregando...</p>}
-        {error && <p className="alert alert-danger">Ocorreu um Erro: {error}</p>}
+        {error && (
+          <p className="alert alert-danger">Ocorreu um Erro: {error}</p>
+        )}
 
         {/* Tabela de usuários */}
         {!loading && !error && users.length > 0 && (
-         <table className="table mt-3">
+          <table className="table mt-3">
             <thead>
               <tr>
-                <th>id</th>
-                <th>nome</th>
-                <th>email</th>
-                <th>password</th>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Senha</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
               </tr>
             </thead>
             <tbody>
-              {users.map( a => (
-                <tr key={a.id}>
-                  <td>{a.id}</td>
-                  <td>{a.nome || '-'}</td>
-                  <td>{a.email}</td>
-                  <td>{a.password}</td>
+              {users.map((user: any) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.password}</td>
+                  <td>{user.phone}</td>
+                  <td>{user.address}</td>
                 </tr>
               ))}
+            </tbody>
           </table>
         )}
       </div>

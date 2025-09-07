@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import './UserCard.css';
-import { usuarios } from "../dados/usuarios";
 import { useState } from "react";
 import NavBar from "./NavBar";
 
