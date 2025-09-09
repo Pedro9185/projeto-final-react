@@ -4,20 +4,25 @@ import UserServices from "../../services/UserServices";
 import "./cadastro.css";
 
 function Cadastro() {
-  const [nome, setNome] = useState("");
+  const [name, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [password, setSenha] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-    // Carrega usuários da API
     async function load() {
       try {
         setLoading(true);
-        const data = await UserServices.buscarUser();
+        const data = {
+          name: name,
+          email: email,
+          password: password,
+        };
         console.log("Usuários retornados da API:", data);
-        setUsers(data);
+        await UserServices.createnewUser(data);
+        navigate("/home");
+        //setUsers(data);
         } catch (error) {
           console.error("Erro ao buscar usuários:", error);
       } 
@@ -33,15 +38,11 @@ function Cadastro() {
     const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (senha !== confirmarSenha) {
-      setError("As senhas não coincidem.");
-      return;
-    }
-    if (!nome || !email || !senha) {
+    if (!name || !email || !password) {
       setError("Por favor, preencha todos os campos.");
       return;
     }
-    if (senha.length < 5) {
+    if (password.length < 5) {
       setError("A senha deve ter pelo menos 5 caracteres.");
       return;
     }
@@ -50,7 +51,7 @@ function Cadastro() {
       return;
     }
 localStorage.setItem("UsuarioCadastrado",
-    JSON.stringify({nome, email, senha}));
+    JSON.stringify({name, email, password}));
 
     navigate("/home");
     };
@@ -82,7 +83,7 @@ localStorage.setItem("UsuarioCadastrado",
 
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="nome" className="form-label">Nome</label>
+            <label htmlFor="name" className="form-label">Nome</label>
             <div className="input-group">
               <span className="input-group-text bg-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-envelope" viewBox="0 0 16 16">
@@ -92,15 +93,13 @@ localStorage.setItem("UsuarioCadastrado",
               <input
                 type="text"
                 className="form-control"
-                id="nome"
+                id="name"
                 placeholder="Nome Completo"
                 onChange={(e) => setNome(e.target.value)}
               />
             </div>
           </div>
-        </form>
 
-         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">E-mail</label>
             <div className="input-group">
@@ -120,17 +119,17 @@ localStorage.setItem("UsuarioCadastrado",
           </div>
 
           <div className="mb-2">
-            <label htmlFor="senha" className="form-label">Senha</label>
+            <label htmlFor="password" className="form-label">Senha</label>
             <div className="input-group">
               <span className="input-group-text bg-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock" viewBox="0 0 16 16">
-                  <path fillrule="evenodd" d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4M4.5 7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11.5 7zM8 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
+                  <path fillRule="evenodd" d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4M4.5 7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11.5 7zM8 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
                 </svg>
               </span>
               <input
                 type="password"
                 className="form-control"
-                id="senha"
+                id="password"
                 placeholder="Password"
                 onChange={(e) => setSenha(e.target.value)}
               />
@@ -145,7 +144,7 @@ localStorage.setItem("UsuarioCadastrado",
               marginTop: "20px",
             }}
           >
-            <Link to="/home">Cadastrar</Link>
+            Cadastrar
           </button> 
         </form>
 

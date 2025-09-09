@@ -14,20 +14,17 @@ const getUserById = async (id) => {
     });
 };
 
-const createUser = async (name, email, password, phone, address, birthDate) => {
+const createUser = async (name, email, password) => {
     return prisma.User.create({
         data: {
             name : name,
             email:email,
             password:password,
-            phone:phone,
-            address:address,
-            birthDate: new Date (birthDate) 
         }
     });
 };
 
-const updateUser = async (id, name, email, password, phone, address, birthDate) => {
+const updateUser = async (id, name, email, password) => {
     const user = await getUserById(id);
 
     if (!user) {
@@ -40,9 +37,6 @@ const updateUser = async (id, name, email, password, phone, address, birthDate) 
             name,
             email,
             password,
-            phone,
-            address,
-            birthDate
         }
     });
 };

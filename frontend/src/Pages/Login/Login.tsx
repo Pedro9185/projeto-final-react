@@ -25,7 +25,7 @@ function Login() {
       setLoading(true);
       const data = await UserServices.buscarUser();
       console.log("Usuários retornados da API:", data);
-      setUsers(data);
+      //setUsers(data);
       } catch (error) {
         console.error("Erro ao buscar usuários:", error);
     } 
@@ -168,33 +168,6 @@ function Login() {
           <p className="alert alert-danger">Ocorreu um Erro: {error}</p>
         )}
 
-        {/* Tabela de usuários */}
-        {!loading && !error && users.length > 0 && (
-          <table className="table mt-3">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Senha</th>
-                <th>Telefone</th>
-                <th>Endereço</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user: any) => (
-                <tr key={user.id}>
-                  <td>{user.id}</td>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.password}</td>
-                  <td>{user.phone}</td>
-                  <td>{user.address}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
       </div>
     </div>
   );
