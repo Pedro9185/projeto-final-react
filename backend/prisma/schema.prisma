@@ -27,10 +27,7 @@ model User {
   name         String
   email        String    @unique
   password     String
-  phone        String?   @db.VarChar(20)
-  address      String?
   registeredAt DateTime? @default(now()) @db.Date
-  birthDate    DateTime? @db.Date
 
   // Relationships
   products     Product[]

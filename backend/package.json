@@ -15,4 +15,5 @@
     "prisma": "prisma",
     "postinstall": "prisma generate"
   }
+
 }

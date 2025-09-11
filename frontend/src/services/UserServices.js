@@ -22,7 +22,6 @@ const buscarDadosUser = async (id, payload) => {
 
 const createnewUser = async (payload) => {
   try {
-    console.log("===========================================")
     console.log(payload)
     const response = await api.post("/users", payload);
     return response.data;
