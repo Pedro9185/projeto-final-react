@@ -6,6 +6,7 @@ app.use(express.json());
 import axios from 'axios';
 const UserRoutes = require('./router/UserRoutes');
 const TradeRoutes = require('./router/TradeRoutes');
+const categoriaRoutes = require('./router/categoriaRoutes');
 
 app.use(cors({
   origin: 'http://localhost:5173', // Permite requisições do frontend
@@ -22,5 +23,6 @@ app.get('/', (req, res) => {
 
 app.use('/users', UserRoutes);
 app.use('/trades', TradeRoutes);
+app.use('/categorias', categoriaRoutes);
 
 module.exports = app;
