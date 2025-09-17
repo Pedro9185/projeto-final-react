@@ -1,11 +1,12 @@
-const express = require('express');
+import express from "express";
 const app = express();
-const cors = require('cors');
+import cors from "cors";
 app.use(cors());
 app.use(express.json());
 import axios from 'axios';
-const UserRoutes = require('./router/UserRoutes');
-const TradeRoutes = require('./router/TradeRoutes');
+import UserRoutes from "./router/UserRoutes";
+import TradeRoutes from "./router/TradeRoutes";
+import ProductRoutes from "./router/productRoutes";
 
 app.use(cors({
   origin: 'http://localhost:5173', // Permite requisições do frontend
@@ -22,5 +23,5 @@ app.get('/', (req, res) => {
 
 app.use('/users', UserRoutes);
 app.use('/trades', TradeRoutes);
-
+app.use("/products", ProductRoutes);
 module.exports = app;
