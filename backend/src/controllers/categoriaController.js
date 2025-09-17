@@ -1,4 +1,4 @@
-const categoriaModel = require('../models/ModelCadastro')
+const categoriaModel = require('../models/ModelCategoria')
 
 async function createCategoria(req, res) {
   try {
@@ -12,7 +12,7 @@ async function createCategoria(req, res) {
 async function getCategorias(req, res) {
   try {
     const categorias = await categoriaModel.findAll()
-    res.json(categorias)
+    res.status(200).json(categorias)
   } catch (error) {
     res.status(500).json({ error: error.message })
   }
@@ -22,7 +22,7 @@ async function getCategoriaById(req, res) {
   try {
     const categoria = await categoriaModel.findById(req.params.id)
     if (!categoria) return res.status(404).json({ error: 'Categoria não encontrada' })
-    res.json(categoria)
+    res.status(200).json(categoria)
   } catch (error) {
     res.status(500).json({ error: error.message })
   }
