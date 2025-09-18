@@ -1,4 +1,3 @@
-// const tradeService = require('../services/tradeService');
 const { getAllTrades, getTradeById, addTrade, updateTrade, deleteTrade } = require('../models/ModelTrade');
 
 const getAllTradesHandler = async (req, res) => {

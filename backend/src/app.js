@@ -1,26 +1,23 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-app.use(cors());
-app.use(express.json());
-import axios from 'axios';
 const UserRoutes = require('./router/UserRoutes');
 const TradeRoutes = require('./router/TradeRoutes');
 const categoriaRoutes = require('./router/categoriaRoutes');
 
+// Middlewares
 app.use(cors({
-  origin: 'http://localhost:5173', // Permite requisições do frontend
+  origin: 'http://localhost:5173/', // Permite requisições do seu frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
 }));
+app.use(express.json()); // Para o Express entender requisições com corpo em JSON
 
-app.use(axios(
-  { baseURL: 'http://localhost:3000' }
-))
-
+// Rota de teste
 app.get('/', (req, res) => {
     res.send('API is running');
 });
 
+// Rotas da sua aplicação
 app.use('/users', UserRoutes);
 app.use('/trades', TradeRoutes);
 app.use('/categorias', categoriaRoutes);

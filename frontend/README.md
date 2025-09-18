@@ -3,7 +3,8 @@
 - [Pedro Henrique](https://github.com/Pedro9185)<br>
 - [Gustavo Marques](https://github.com/guztamq)<br>
 - [Ysabelle da Hora](https://github.com/ysabelleeee)<br>
-
+- [Joel Dantas](https://github.com/Joeldant)<br>
+- [José Willian](https://github.com/josewellian21)<br>
 
 # Tema: Eco Troca
 
