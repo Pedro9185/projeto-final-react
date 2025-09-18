@@ -1,6 +1,7 @@
-const express = require('express');
+import express from "express";
 const app = express();
 const cors = require('cors');
+
 const UserRoutes = require('./router/UserRoutes');
 const TradeRoutes = require('./router/TradeRoutes');
 const categoriaRoutes = require('./router/categoriaRoutes');
@@ -20,6 +21,9 @@ app.get('/', (req, res) => {
 // Rotas da sua aplicação
 app.use('/users', UserRoutes);
 app.use('/trades', TradeRoutes);
+
+app.use("/products", ProductRoutes);
+
 app.use('/categorias', categoriaRoutes);
 
 module.exports = app;
