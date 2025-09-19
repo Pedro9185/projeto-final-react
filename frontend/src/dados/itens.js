@@ -17,6 +17,7 @@ const itens = [
   {
     id: 2,
     nome: "Sala Decorada",
+    descricao: " A sala é uma fusão de funcionalidade e estilo, onde cada peça parece ter sido escolhida para criar um refúgio de tranquilidade e bom gosto."
     imagem: salaDecorada,
     categoria: "Casa e Decoração",
     regiao: "Fortaleza",
@@ -26,6 +27,7 @@ const itens = [
   {
     id: 3,
     nome: "Livro: ",
+    descricao: " Cada livro é uma nova oportunidade de aprender,a leitura nos ajuda a entender diferentes perspectivas e emoções, cultivando a empatia e a compreensão do mundo ao nosso redor."
     imagem: livro,
     categoria: "Livros",
     regiao: "Fortaleza",
@@ -35,6 +37,7 @@ const itens = [
   {
     id: 4,
     nome: "Bicicleta Retrô",
+    descricao: "A bicicleta retrô é mais do que um meio de transporte; é uma peça de estilo que evoca a nostalgia das décadas passadas. "
     imagem: bicicleta,
     categoria: "Esportes",
     regiao: "Fortaleza",
@@ -44,6 +47,7 @@ const itens = [
   {
     id: 5,
     nome: "Sala Decorada",
+    descricao: " A sala é uma fusão de funcionalidade e estilo, onde cada peça parece ter sido escolhida para criar um refúgio de tranquilidade e bom gosto."
     imagem: salaDecorada,
     categoria: "Casa e Decoração",
     regiao: "Fortaleza",
@@ -52,27 +56,30 @@ const itens = [
   },
   {
     id: 6,
-    nome: "Livro: ",
-    imagem: livro,
-    categoria: "Livros",
+    nome: "Quadro decorativo",
+    descricao: "O quadro decorativo é uma peça de arte que transforma qualquer ambiente, adicionando personalidade e estilo às paredes. Com seu design único e cores vibrantes, este quadro é perfeito para quem deseja criar um espaço acolhedor e visualmente atraente."
+    imagem: "quadro decorativo",
+    categoria: "Casa e Decoração",
     regiao: "Fortaleza",
     tempo: "1d",
     badgeColor: "success",
   },
   {
     id: 7,
-    nome: "Bicicleta Retrô",
-    imagem: bicicleta,
-    categoria: "Esportes",
+    nome: "Bolsa de Couro",
+    descricao: "A bolsa de couro é um acessório clássico que combina durabilidade e estilo atemporal. Feita com couro de alta qualidade, esta bolsa é perfeita para quem busca elegância e funcionalidade em um único item."
+    imagem: bolsa,
+    categoria: "Acessórios",
     regiao: "Fortaleza",
     tempo: "3h",
     badgeColor: "success",
   },
     {
     id: 8,
-    nome: "Bicicleta Retrô",
-    imagem: bicicleta,
-    categoria: "Esportes",
+    nome: "Relógio Vintage",
+    descricao: "O relógio vintage é uma peça atemporal que combina elegância clássica com um toque de nostalgia. Com seu design sofisticado e detalhes intrincadoss."
+    imagem: relógio,
+    categoria: "Acessórios",
     regiao: "Fortaleza",
     tempo: "3h",
     badgeColor: "success",
