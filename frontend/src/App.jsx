@@ -4,11 +4,11 @@ import Login from "./Pages/Login/Login";
 import Cadastro from "./Pages/CadastroUsuario/cadastro";
 import Home from "./Pages/Home/Home";
 import UserCard from './components/UserCard'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Explorar from "./Pages/Explorar/Explorar";
 import CadastroItem from "./Pages/CadastroItem/CadastroItem";
 import Tabs from "./components/Tabs";
 import UserPage from "./Pages/UserPage/userPage";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 

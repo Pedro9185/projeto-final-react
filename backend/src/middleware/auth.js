@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 function requireAuth(req, res, next) {
   const auth = req.headers.authorization || "";
 
-  const token = auth.startsWith("Bearer ") ? auth.slice(7, auth.length) : null;
+  const token = auth.startsWith("Bearer ") ? auth.slice(7) : null;
   if (!token) {
     return res.status(401).json({ error: "Token não fornecido." });
   }
