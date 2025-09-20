@@ -13,9 +13,9 @@ const getAllUsersHandler = async (req, res) => {
 }
 
 const getUserByIdHandler = async (req, res) => {
-    const id = parseInt(req.params.id);
+    const email = parseInt(req.params.email);
     try {
-        const user = await getUserById (id);
+        const user = await getUserById (email);
         if(!user) {
             return res.status(404).json({message: 'Usuario não encontrado'});
         }
@@ -44,7 +44,7 @@ const createUserHandler= async (req, res) => {
 
 const updateUserHandler = async (req, res) => {
     const id = parseInt (req.params.id);
-    const {name, email, password} = req.body;
+    const {name, email , password} = req.body;
     if (!email||!password) {
         return res.status(400).json({message: 'Email e senha são obrigatórios'});
     }
@@ -52,7 +52,7 @@ const updateUserHandler = async (req, res) => {
         const UserAtualizado = await updateUser(id, name, email, password);
         res.status(200).json(UserAtualizado);
     } catch (error) {
-        if (error.message === 'Usuario não encontrado') {
+        if (alert === 'Usuario não encontrado') {
             return res.status(404).json({message: 'Usuario não encontrado'});
         }
         res.status(500).json({message: 'Erro ao atualizar usuario'});
@@ -61,9 +61,9 @@ const updateUserHandler = async (req, res) => {
 }
 
 const deleteUserHandler = async (req, res) => {
-    const id = parseInt(req.params.id);
+    const email = parseInt(req.params.email);
     try {
-        const user = await deleteUser(id);
+        const user = await deleteUser(email);
         res.status(204).json({message: 'Sucesso ao deletar usuario'});
     } catch (error) {
         if (error.message === 'Usuario não encontrado') {

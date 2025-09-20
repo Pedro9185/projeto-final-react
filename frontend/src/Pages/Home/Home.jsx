@@ -68,6 +68,14 @@ function Home() {
             <h4 className="fw-bold">98%</h4>
             <p className="text-muted">Satisfação</p>
           </div>
+
+          <div className="sobre"><h4>Troque, Reutilize, Sustente</h4>
+              Somos uma plataforma criada para conectar pessoas que desejam trocar produtos de forma prática, consciente e sustentável.
+            Aqui, cada troca é uma oportunidade de reutilizar objetos, reduzir o desperdício e incentivar o consumo colaborativo.
+
+            Nosso objetivo é aproximar pessoas da sua região e mostrar que é possível dar uma nova vida a itens parados, construindo juntos um futuro mais sustentável.</div>
+
+            
         </div>
       </section>
     </div>

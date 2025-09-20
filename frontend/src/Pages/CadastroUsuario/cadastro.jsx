@@ -50,6 +50,8 @@ function Cadastro() {
       setError("Por favor, insira um email válido.");
       return;
     }
+
+    alert ("Usuário cadastrado com sucesso!");
 localStorage.setItem("UsuarioCadastrado",
     JSON.stringify({name, email, password}));
 
