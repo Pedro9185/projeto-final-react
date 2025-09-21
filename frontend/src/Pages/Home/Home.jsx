@@ -3,8 +3,6 @@ import NavBar from "../../components/NavBar";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./Home.css";
 
-
-
 function Home() {
   return (
     <>
