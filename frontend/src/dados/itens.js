@@ -4,6 +4,7 @@ import livro from "../assets/livro.jpg";
 import bicicleta from "../assets/bicicleta.jpg";
 import bolsa from "../assets/bolsa.jpg";
 import relógio from "../assets/relógio.jpg";
+import quadrodecorativo from "../assets/quadrodecorativo.jpg";
 
 const itens = [
   {
