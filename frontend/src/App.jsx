@@ -16,9 +16,9 @@ function App() {
  return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
-          <Route path="/home" element={<Home/>}/>
+          <Route path="/Login" element={<Login/>}/>
           <Route path="/userCard" element={<UserCard/>}/>
           <Route path="/explorar" element={<Explorar/>}/>
           <Route path="/cadastrarItem" element={<CadastroItem/>}/>
