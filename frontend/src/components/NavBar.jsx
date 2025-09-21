@@ -1,3 +1,4 @@
+import ("../components/NavBar");
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -28,7 +29,7 @@ function NavBar() {
                         alt="Logo"
                         className="me-2"
                     />
-                    <span style={{ color: '#198754' }}>Eco</span><span style={{ color: '#0d6efd' }}>troca</span>
+                    <span className="eco-gradient">EcoTroca</span>
                 </Link>
 
                 <button

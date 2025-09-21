@@ -2,7 +2,6 @@ import ifone from "../assets/ifone.jpg";
 import salaDecorada from "../assets/sala decorada.jpg";
 import livro from "../assets/livro.jpg";
 import bicicleta from "../assets/bicicleta.jpg";
-import quadrodecorativo from "../assets/quadrodecorativo.jpg";
 import bolsa from "../assets/bolsa.jpg";
 import relógio from "../assets/relógio.jpg";
 
@@ -61,6 +60,7 @@ const itens = [
     id: 6,
     nome: "Quadro decorativo",
     descricao: "O quadro decorativo é uma peça de arte que transforma qualquer ambiente, adicionando personalidade e estilo às paredes. Com seu design único e cores vibrantes, este quadro é perfeito para quem deseja criar um espaço acolhedor e visualmente atraente.",
+
     imagem: quadrodecorativo,
     categoria: "Casa e Decoração",
     regiao: "Fortaleza",
