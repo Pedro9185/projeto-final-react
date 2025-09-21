@@ -39,7 +39,7 @@ const itens = [
   {
     id: 4,
     nome: "Bicicleta Retrô",
-    descricao: "A bicicleta retrô é mais do que um meio de transporte; é uma peça de estilo que evoca a nostalgia das décadas passadas.",
+    descricao: "A bicicleta retrô é mais do que um meio de transporte; é uma peça de estilo que evoca a nostalgia das décadas passadas. ",
     imagem: bicicleta,
     categoria: "Esportes",
     regiao: "Fortaleza",
@@ -60,7 +60,8 @@ const itens = [
     id: 6,
     nome: "Quadro decorativo",
     descricao: "O quadro decorativo é uma peça de arte que transforma qualquer ambiente, adicionando personalidade e estilo às paredes. Com seu design único e cores vibrantes, este quadro é perfeito para quem deseja criar um espaço acolhedor e visualmente atraente.",
-    imagem: "quadro decorativo",
+
+    imagem: quadrodecorativo,
     categoria: "Casa e Decoração",
     regiao: "Fortaleza",
     tempo: "1d",
