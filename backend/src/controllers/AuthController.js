@@ -43,6 +43,7 @@ function signToken(user) {
             role: exists.role,
         },  
     })
+  }
 
     async function Login(req, res) {
       const { email, password } = req.body;
@@ -78,7 +79,6 @@ function signToken(user) {
         },
       });
     }
-  }
 
 
 module.exports = { Register, Login };

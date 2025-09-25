@@ -70,9 +70,6 @@ function NavBar() {
                         <Link to="/UserPage" className="btn btn-success text-white">
                             <i className="bi bi-person-fill me-1"></i> Meu Perfil
                         </Link>
-                        <button className="btn btn-success m-3 text-white" onClick={() => sair()}>
-                            Sair
-                        </button>
                     </div>
                 </div>
             </div>

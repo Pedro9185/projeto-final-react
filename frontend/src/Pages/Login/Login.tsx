@@ -23,7 +23,7 @@ function Login() {
   async function load() {
     try {
       setLoading(true);
-      const data = await UserServices.buscarUser();
+      const data = await UserServices.buscarDadosUser();
       console.log("Usuários retornados da API:", data);
       //setUsers(data);
       } catch (error) {

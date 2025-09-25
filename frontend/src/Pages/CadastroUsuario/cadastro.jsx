@@ -10,6 +10,7 @@ function Cadastro() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  
 
     async function load() {
       try {
@@ -20,16 +21,17 @@ function Cadastro() {
           password: password,
         };
         console.log("Usuários retornados da API:", data);
-        await UserServices.createnewUser(data);
-        navigate("/home");
-        //setUsers(data);
-        } catch (error) {
-          console.error("Erro ao buscar usuários:", error);
-      } 
-        finally {
-        setLoading(false);
-      }
+        const createdUser = await UserServices.createnewUser(data);
+
+        localStorage.setItem("UsuarioCadastrado", JSON.stringify(createdUser));
+          navigate("/#");
+    } catch (err) {
+      console.error("Erro ao cadastrar:", err);
+      setError("Erro ao cadastrar usuário. Tente novamente.");
+    } finally {
+      setLoading(false);
     }
+  };
   
     useEffect(() => {
       load();
@@ -53,7 +55,7 @@ function Cadastro() {
 localStorage.setItem("UsuarioCadastrado",
     JSON.stringify({name, email, password}));
 
-    navigate("/home");
+    navigate("/#");
     };
     return (
         <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
