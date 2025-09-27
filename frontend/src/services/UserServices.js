@@ -23,7 +23,9 @@ const buscarDadosUser = async (id) => {
 const createnewUser = async (payload) => {
   try {
     console.log("Criando usuário:", payload);
+    console.log("====================================")
     const response = await api.post("/users", payload);
+    console.log("================",response)
     return response.data;
   } catch (error) {
     console.error("Erro ao criar usuário", error);
@@ -44,7 +46,7 @@ const updateDadosUser = async (id, payload) => {
 const deleteDadosUser = async (id) => {
   try {
     const response = await api.delete(`/users/${id}`);
-    return response.status === 204 ? true : response.data;
+    return response.status === 204;
   } catch (error) {
     console.error("Erro ao deletar usuário", error);
     throw error;

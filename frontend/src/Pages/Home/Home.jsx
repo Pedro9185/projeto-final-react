@@ -182,7 +182,7 @@ function Home() {
           <h5 class="text-white">Social Media</h5>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white ms-5"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.instagram.com/joelzzrl/" class="nav-link p-0 text-white ms-5"><i class="bi bi-linkedin"></i></a>
             </li>
             <li class="nav-item mb-2">
               <a href="#" class="nav-link p-0 text-white ms-5"><i class="bi bi-instagram"></i></a>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UserServices from "../../services/UserServices";
+import authServices from "../../services/authServices";
 import "./cadastro.css";
 
 function Cadastro() {
@@ -15,16 +15,6 @@ function Cadastro() {
     async function load() {
       try {
         setLoading(true);
-        const data = {
-          name: name,
-          email: email,
-          password: password,
-        };
-        console.log("Usuários retornados da API:", data);
-        const createdUser = await UserServices.createnewUser(data);
-
-        localStorage.setItem("UsuarioCadastrado", JSON.stringify(createdUser));
-          navigate("/#");
     } catch (err) {
       console.error("Erro ao cadastrar:", err);
       setError("Erro ao cadastrar usuário. Tente novamente.");
@@ -37,9 +27,9 @@ function Cadastro() {
       load();
     }, []);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setLoading(true);
     if (!name || !email || !password) {
       setError("Por favor, preencha todos os campos.");
       return;
@@ -52,10 +42,17 @@ function Cadastro() {
       setError("Por favor, insira um email válido.");
       return;
     }
-localStorage.setItem("UsuarioCadastrado",
-    JSON.stringify({name, email, password}));
+        const data = {
+          name: name,
+          email: email,
+          password: password,
+        };
+        console.log("Usuários retornados da API:", data);
+        const newUser = await authServices.userRegister(data);
 
-    navigate("/#");
+        localStorage.setItem("UsuarioCadastrado", JSON.stringify(newUser));
+        console.log("Usuário cadastrado com sucesso:", newUser);
+        navigate("/#");
     };
     return (
         <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
