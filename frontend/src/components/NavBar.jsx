@@ -56,7 +56,7 @@ function NavBar() {
                             <Link to={'/cadastrarItem'} className="nav-link text-secondary" >Novo Item</Link>
                         </li>
                          <li className="nav-item ms-3">
-                            <Link to={'/userCard'} className="nav-link text-secondary" >Usuário</Link>
+                            <Link to={'/Usercard'} className="nav-link text-secondary" >Usuário</Link>
                         </li>
                     </ul>
 

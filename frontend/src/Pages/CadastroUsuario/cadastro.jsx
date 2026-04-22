@@ -52,7 +52,8 @@ function Cadastro() {
 
         localStorage.setItem("UsuarioCadastrado", JSON.stringify(newUser));
         console.log("Usuário cadastrado com sucesso:", newUser);
-        navigate("/#");
+        console.alert("Usuário cadastrado com sucesso, faça o login!");
+        navigate("/Login");
     };
     return (
         <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
