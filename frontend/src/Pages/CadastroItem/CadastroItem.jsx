@@ -9,13 +9,13 @@ const CadastroItem = () => {
   const [bairro, setBairro] = useState('');
   const [foto, setFoto] = useState(null);
   const [itens, setItens] = useState([]);
-  const [mensagem, setMensagem] = useState('');
+  const [mensagem, setMensagem] = useState({ tipo: '', texto: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!nome || !descricao || !categoria || !regiao || !bairro || !foto) {
-      setMensagem('Preencha todos os campos.');
+      setMensagem({ tipo: 'danger', texto: 'Preencha todos os campos.' });
       return;
     }
 
@@ -33,9 +33,9 @@ const CadastroItem = () => {
       };
 
       setItens((prevItens) => [...prevItens, novoItem]);
+      setMensagem({ tipo: 'success', texto: 'Item cadastrado com sucesso!' });
 
-      setMensagem('Item cadastrado com sucesso!');
-
+      // Limpa os campos
       setNome('');
       setDescricao('');
       setCategoria('');
@@ -43,144 +43,159 @@ const CadastroItem = () => {
       setBairro('');
       setFoto(null);
 
-      document.getElementById('fotoInput').value = '';
+      const fotoInput = document.getElementById('fotoInput');
+      if (fotoInput) fotoInput.value = '';
     } catch (error) {
       console.error('Erro ao cadastrar item:', error);
-      setMensagem('Erro ao cadastrar item.');
+      setMensagem({ tipo: 'danger', texto: 'Erro ao cadastrar item.' });
     }
   };
 
   return (
-   <>
-    <NavBar/>
-    <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <h3 style={{ textAlign: 'center', color: '#007bff' }}>
-        Cadastro de um novo Item
-      </h3>
-      <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
-        <div style={{ marginBottom: '10px', textAlign: 'left' }}>
-          <label>Nome:</label>
-          <input
-            type="text"
-            value={nome}
-            placeholder='Nome do Produto'
-            onChange={(e) => setNome(e.target.value)}
-            style={{ width: '100%', paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px" }}
-            required
-           
-            />
-        </div>
-        <div style={{ marginBottom: '10px', textAlign: 'left' }}>
-          <label>Descrição:</label>
-          <input
-            type="text"
-            value={descricao}
-            placeholder='Descrição do Produto'
-            onChange={(e) => setDescricao(e.target.value)}
-            style={{ width: '100%' , paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px"  }}
-            required
-            />
-        </div>
-        <div style={{ marginBottom: '10px', textAlign: 'left' }}>
-          <label>Categoria:</label>
-          <input
-            type="text"
-            value={categoria}
-            placeholder='Categoria do Produto'
-            onChange={(e) => setCategoria(e.target.value)}
-            style={{ width: '100%', paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px"  }}
-            required
-            />
-        </div>
-        <div style={{ marginBottom: '10px', textAlign: 'left' }}>
-          <label>Região:</label>
-          <input
-            type="text"
-            value={regiao}
-            placeholder='Região'
-            onChange={(e) => setRegiao(e.target.value)}
-            style={{ width: '100%', paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px"  }}
-            required
-            />
-        </div>
-        <div style={{ marginBottom: '10px', textAlign: 'left' }}>
-          <label>Bairro:</label>
-          <input
-            type="text"
-            value={bairro}
-            onChange={(e) => setBairro(e.target.value)}
-            placeholder='Bairro'
-            style={{ width: '100%', paddingLeft: "5px", height: "40px", border: "1px solid #d3d3d3", borderRadius: "5px"  }}
-            required
-            />
-        </div>
-        <div style={{ marginBottom: '10px', textAlign: 'left' }}>
-          <label>Foto do produto:</label>
-          <input
-            type="file"
-            accept="image/*"
-            id="fotoInput"
-            onChange={(e) => setFoto(e.target.files[0])}
-            style={{ width: '100%', paddingLeft: "5px"  }}
-            required
-            />
-        </div>
-        <button
-          type="submit"
-          style={{
-            background: 'linear-gradient(45deg, #28a745, #007bff)',
-            color: '#fff',
-            border: 'none',
-            padding: '10px 30px',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontSize: '14px',
-            display: 'inline-block',
-            marginTop: '10px',
-          }}
-          >
-          Cadastrar
-        </button>
-      </form>
+    <>
+      <NavBar />
 
-      {mensagem && (
-        <p style={{ color: 'green', marginTop: '10px', textAlign: 'center' }}>
-          {mensagem}
-        </p>
-      )}
+      <div className="container py-4">
+        <div className="card shadow-lg rounded-5 p-4 mx-auto my-4" style={{ maxWidth: '500px' }}>
+          <div className="card-body">
+            <h3 className="card-title text-center text-primary fw-bold mb-4">
+              Cadastro de um novo Item
+            </h3>
 
-      <h2 style={{ marginTop: '30px', color: '#343a40' }}>
-        Itens cadastrados:
-      </h2>
-      <ul style={{ padding: 0, listStyle: 'none' }}>
-        {itens.map((item) => (
-          <li
-          key={item.id}
-          style={{
-            background: '#ffffff',
-            padding: '10px',
-            marginBottom: '8px',
-            borderRadius: '4px',
-            boxShadow: '0 0 5px rgba(0,0,0,0.1)',
-            }}
-            >
-            <strong style={{ color: '#007bff' }}>{item.nome}</strong> -{' '}
-            {item.descricao} ({item.categoria})<br />
-            Região: {item.regiao} | Bairro: {item.bairro}
-            <br />
-            {item.fotoUrl && (
-              <img
-              src={item.fotoUrl}
-              alt="Foto do Produto"
-              style={{ marginTop: '10px', maxWidth: '100%' }}
-              />
+            {mensagem.texto && (
+              <div className={`alert alert-${mensagem.tipo} text-center`} role="alert">
+                {mensagem.texto}
+              </div>
             )}
-          </li>
-        ))}
-      </ul>
-    </div>
-        </>
-  
+
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={nome}
+                  placeholder="Nome do Produto"
+                  onChange={(e) => setNome(e.target.value)}
+                  className="form-control"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={descricao}
+                  placeholder="Descrição do Produto"
+                  onChange={(e) => setDescricao(e.target.value)}
+                  className="form-control"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <select
+                  value={categoria}
+                  onChange={(e) => setCategoria(e.target.value)}
+                  className="form-select"
+                  required
+                >
+                  <option value="" disabled>
+                    Selecione a Categoria...
+                  </option>
+                  <option value="Roupas e Acessórios">Roupas e Acessórios</option>
+                  <option value="Eletrônicos">Eletrônicos</option>
+                  <option value="Móveis e Decoração">Móveis e Decoração</option>
+                  <option value="Livros e Revistas">Livros e Revistas</option>
+                  <option value="Brinquedos e Jogos">Brinquedos e Jogos</option>
+                  <option value="Brinquedos e Jogos">Animais</option>
+                  <option value="Outros">Outros</option>
+                </select>
+              </div>
+
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={regiao}
+                  placeholder="Região"
+                  onChange={(e) => setRegiao(e.target.value)}
+                  className="form-control"
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={bairro}
+                  onChange={(e) => setBairro(e.target.value)}
+                  placeholder="Bairro"
+                  className="form-control"
+                  required
+                />
+              </div>
+
+              <div className="mb-4">
+                <label htmlFor="fotoInput" className="form-label text-start d-block">
+                  Foto do produto:
+                </label>
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="fotoInput"
+                  onChange={(e) => setFoto(e.target.files[0])}
+                  className="form-control"
+                  required
+                />
+              </div>
+
+              <div className="text-center">
+                <button
+                  type="submit"
+                  className="btn text-white px-4 py-2"
+                  style={{
+                    background: 'linear-gradient(45deg, #28a745, #007bff)',
+                    border: 'none',
+                  }}
+                >
+                  Cadastrar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        {/* Seção de Itens Cadastrados */}
+        {itens.length > 0 && (
+          <div className="mt-5">
+            <h3 className="fw-bold text-dark mb-4 text-center">Itens Cadastrados</h3>
+            
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+              {itens.map((item) => (
+                <div className="col" key={item.id}>
+                  <div className="card h-100 shadow-sm">
+                    {item.fotoUrl && (
+                      <img
+                        src={item.fotoUrl}
+                        alt={item.nome}
+                        className="card-img-top"
+                        style={{ height: '200px', objectFit: 'cover' }}
+                      />
+                    )}
+                    <div className="card-body">
+                      <span className="badge bg-secondary mb-2">{item.categoria}</span>
+                      <h5 className="card-title fw-bold text-primary">{item.nome}</h5>
+                      <p className="card-text">{item.descricao}</p>
+                    </div>
+                    <div className="card-footer bg-transparent text-muted small">
+                       {item.regiao} - {item.bairro}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

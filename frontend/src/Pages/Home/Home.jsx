@@ -8,6 +8,7 @@ function Home() {
     <>
       <NavBar />
 
+      {/* Hero Section */}
       <section
         className="text-white text-center py-5"
         style={{
@@ -19,6 +20,7 @@ function Home() {
             Troque, <span className="text-white">Reutilize</span>,{" "}
             <span style={{ color: "#FF8F00" }}>Sustente</span>
           </h1>
+
           <p className="lead mt-3">
             A plataforma que conecta pessoas para trocas sustentáveis na sua
             região
@@ -29,18 +31,30 @@ function Home() {
               to="/cadastrarItem"
               className="btn btn-light text-success fw-semibold d-flex align-items-center px-4"
             >
-              Cadastrar Item <i className="bi bi-arrow-right ms-2"></i>
+              Cadastrar Item
+              <i className="bi bi-arrow-right ms-2" aria-hidden="true"></i>
             </Link>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Buscar item..."
-              style={{ maxWidth: "240px", borderRadius: "10px" }}
-            />
+
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="d-inline-block"
+            >
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Buscar item..."
+                aria-label="Buscar item"
+                style={{
+                  maxWidth: "240px",
+                  borderRadius: "10px",
+                }}
+              />
+            </form>
           </div>
         </div>
       </section>
 
+      {/* Statistics Section */}
       <section className="py-5 bg-white text-center">
         <div className="container d-flex flex-column flex-md-row justify-content-around gap-4">
           <div>
@@ -48,10 +62,11 @@ function Home() {
               <i
                 className="bi bi-recycle"
                 style={{ fontSize: "2rem", color: "#4ade80" }}
+                aria-hidden="true"
               ></i>
             </div>
-            <h4 className="fw-bold">1,200+</h4>
-            <p className="text-muted">Itens trocados</p>
+            <h3 className="fw-bold">1,200+</h3>
+            <p className="text-muted mb-0">Itens trocados</p>
           </div>
 
           <div>
@@ -59,10 +74,11 @@ function Home() {
               <i
                 className="bi bi-people"
                 style={{ fontSize: "2rem", color: "#60a5fa" }}
+                aria-hidden="true"
               ></i>
             </div>
-            <h4 className="fw-bold">700+</h4>
-            <p className="text-muted">Usuários ativos</p>
+            <h3 className="fw-bold">700+</h3>
+            <p className="text-muted mb-0">Usuários ativos</p>
           </div>
 
           <div>
@@ -70,19 +86,21 @@ function Home() {
               <i
                 className="bi bi-heart-fill"
                 style={{ fontSize: "2rem", color: "#facc15" }}
+                aria-hidden="true"
               ></i>
             </div>
-            <h4 className="fw-bold">98%</h4>
-            <p className="text-muted">Satisfação</p>
+            <h3 className="fw-bold">98%</h3>
+            <p className="text-muted mb-0">Satisfação</p>
           </div>
         </div>
       </section>
 
-      {/* Seção Sobre */}
-      <section className="py-5 bg-light text-center ">
+      {/* About Section */}
+      <section className="py-5 bg-light text-center">
         <div className="container">
           <h2 className="fw-bold mb-4">Sobre</h2>
-          <p>
+
+          <p className="mx-auto" style={{ maxWidth: "800px" }}>
             Somos uma plataforma dedicada a conectar pessoas que desejam trocar
             produtos de maneira prática, consciente e sustentável. Acreditamos
             que cada item que passa por nossas mãos pode ter uma nova história,
@@ -90,7 +108,8 @@ function Home() {
             reduzir o desperdício, promover o consumo consciente e fortalecer a
             economia colaborativa.
           </p>
-          <p>
+
+          <p className="mx-auto" style={{ maxWidth: "800px" }}>
             Nosso propósito vai além de facilitar trocas: queremos criar uma
             comunidade ativa e engajada, aproximando pessoas da mesma região e
             incentivando relações de confiança e cooperação. Cada troca
@@ -101,105 +120,170 @@ function Home() {
         </div>
       </section>
 
-      <section>
-        <div className="text-center ">
-          <h1 className="text-center mb-4 mt-4 fw-bold">
+      {/* Call to Action Section */}
+      <section className="py-5 text-center">
+        <div className="container">
+          <h2 className="mb-4 fw-bold">
             Troque, Reutilize, Sustente
-          </h1>
-          <p className="text-center mb-4">
+          </h2>
+
+          <p className="mb-4 mx-auto" style={{ maxWidth: "600px" }}>
             Junte-se a nós nessa jornada de transformação e faça parte de uma
             comunidade que valoriza o que realmente importa: o planeta e as
             pessoas.
           </p>
+
           <Link
             to="/Login"
-            className="btn btn-primary rounded-pill px-3 juninho" type="button"
+            className="btn btn-primary rounded-pill px-4 py-2"
           >
-            Juntar-se <i className="bi bi-door-open"></i>
+            Juntar-se <i className="bi bi-door-open ms-1" aria-hidden="true"></i>
           </Link>
         </div>
       </section>
 
+      <div className="b-example-divider"></div>
 
-     <div class="b-example-divider"></div>
-    <div class="container cleitinho">
-      <footer
-        class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top "
-      >
-        <div class="col mb-3">
-         <Link to={"/home"} className="navbar-brand d-flex align-items-center" >
-                    <img
-                        src="https://img.icons8.com/ios-filled/30/4caf50/leaf.png"
-                        alt="Logo"
-                        className="me-2"
-                    />
-                    <span className="eco-gradient">EcoTroca</span>
-                </Link>
-          <p class="text-white">&copy; 2025</p>
+      {/* Footer */}
+      <footer className="bg-dark text-white pt-5 pb-4">
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3 border-top">
+            <div className="col mb-3">
+              <Link
+                to="/home"
+                className="navbar-brand d-flex align-items-center mb-2"
+              >
+                <img
+                  src="https://img.icons8.com/ios-filled/30/4caf50/leaf.png"
+                  alt="Logo EcoTroca"
+                  className="me-2"
+                />
+                <span className="eco-gradient fw-bold">EcoTroca</span>
+              </Link>
+              <p className="text-muted small">&copy; 2025 EcoTroca</p>
+            </div>
+
+            <div className="col mb-3"></div>
+
+            <div className="col mb-3">
+              <h5 className="text-white mb-3">Navegação</h5>
+              <ul className="nav flex-column">
+                <li className="nav-item mb-2">
+                  <Link to="/home" className="nav-link p-0 text-white-50">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item mb-2">
+                  <Link to="/Login" className="nav-link p-0 text-white-50">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item mb-2">
+                  <Link to="/cadastro" className="nav-link p-0 text-white-50">
+                    Cadastro
+                  </Link>
+                </li>
+                <li className="nav-item mb-2">
+                  <Link to="/faq" className="nav-link p-0 text-white-50">
+                    FAQs
+                  </Link>
+                </li>
+                <li className="nav-item mb-2">
+                  <Link to="/sobre" className="nav-link p-0 text-white-50">
+                    Sobre
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col mb-3">
+              <h5 className="text-white mb-3">EcoTroca</h5>
+              <ul className="nav flex-column">
+                <li className="nav-item mb-2">
+                  <Link to="/home" className="nav-link p-0 text-white-50">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item mb-2">
+                  <Link to="/como-funciona" className="nav-link p-0 text-white-50">
+                    Como funciona
+                  </Link>
+                </li>
+                <li className="nav-item mb-2">
+                  <Link to="/pontos" className="nav-link p-0 text-white-50">
+                    Pontos de coleta
+                  </Link>
+                </li>
+                <li className="nav-item mb-2">
+                  <Link to="/faq" className="nav-link p-0 text-white-50">
+                    FAQs
+                  </Link>
+                </li>
+                <li className="nav-item mb-2">
+                  <Link to="/sobre" className="nav-link p-0 text-white-50">
+                    Sobre nós
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col mb-3">
+              <h5 className="text-white mb-3">Redes Sociais</h5>
+              <ul className="nav flex-column gap-2">
+                <li className="nav-item">
+                  <a
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-link p-0 text-white-50 d-flex align-items-center gap-2"
+                    aria-label="LinkedIn"
+                  >
+                    <i className="bi bi-linkedin"></i> LinkedIn
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="https://www.instagram.com/joelzzrl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-link p-0 text-white-50 d-flex align-items-center gap-2"
+                    aria-label="Instagram"
+                  >
+                    <i className="bi bi-instagram"></i> Instagram
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="#"
+                    className="nav-link p-0 text-white-50 d-flex align-items-center gap-2"
+                    aria-label="Twitter X"
+                  >
+                    <i className="bi bi-twitter-x"></i> X (Twitter)
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="#"
+                    className="nav-link p-0 text-white-50 d-flex align-items-center gap-2"
+                    aria-label="WhatsApp"
+                  >
+                    <i className="bi bi-whatsapp"></i> WhatsApp
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="#"
+                    className="nav-link p-0 text-white-50 d-flex align-items-center gap-2"
+                    aria-label="TikTok"
+                  >
+                    <i className="bi bi-tiktok"></i> TikTok
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="col mb-3"></div>
-        <div class="col mb-3">
-          <h5 class="text-white cleitinho">Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Home</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="/Login" class="nav-link p-0 text-white">Login</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Pricing</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">About</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col mb-3">
-          <h5 class="text-white">Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Home</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Features</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">Pricing</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">FAQs</a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white">About</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col mb-3">
-          <h5 class="text-white">Social Media</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2">
-              <a href="https://www.instagram.com/joelzzrl/" class="nav-link p-0 text-white ms-5"><i class="bi bi-linkedin"></i></a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white ms-5"><i class="bi bi-instagram"></i></a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white ms-5"><i class="bi bi-twitter-x"></i></a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white ms-5"><i class="bi bi-whatsapp"></i></a>
-            </li>
-            <li class="nav-item mb-2">
-              <a href="#" class="nav-link p-0 text-white ms-5"><i class="bi bi-tiktok"></i></a>
-            </li>
-          </ul>
-        </div>
-      </footer >
-    </div>
+      </footer>
     </>
   );
 }
